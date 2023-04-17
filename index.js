@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
-const port = process.env.PORT
 const bcrypt = require('bcryptjs')
 const User = require('./models/User')
 const cookieParser = require('cookie-parser')
@@ -14,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 const jwtSecret = process.env.JWT_SECRET
 const bcryptSalt = bcrypt.genSaltSync(10)
+const port = process.env.URL_PORT
 
 const app = express()
 app.use(express.json())
