@@ -26,6 +26,7 @@ app.use(cors({
     credentials: true,
     origin: process.env.CLIENT_URL
 }))
+    console.log("🚀 Kha ne ~ file: index.js:29 ~ process.env.CLIENT_URL:", process.env.CLIENT_URL)
 
 async function getUserDataFromRequest(req) {
     return new Promise((resolve, reject) => {
