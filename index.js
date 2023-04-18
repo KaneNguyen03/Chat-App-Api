@@ -24,9 +24,8 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: ['https://chat-app-client-nu.vercel.app', 'localhost:5173']
+    origin: ['https://chat-app-client-nu.vercel.app', 'http://localhost:5173']
 }))
-// app.use(cors())
 
 async function getUserDataFromRequest(req) {
     return new Promise((resolve, reject) => {
@@ -49,7 +48,7 @@ app.get('/test', (req, res) => {
 app.get('/profile', (req, res) => {
     console.log("🚀 Kha ne ~ file: index.js:50 ~ req:", req)
     const token = req.cookies?.token
-    
+
     if (token) {
         jwt.verify(token, jwtSecret, {}, (err, userData) => {
             if (err) throw err
