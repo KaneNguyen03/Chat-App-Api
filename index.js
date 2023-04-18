@@ -24,8 +24,9 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: 'wss:https://chat-app-client-nu.vercel.app'
+    origin: 'https://chat-app-client-nu.vercel.app'
 }))
+// app.use(cors())
 
 async function getUserDataFromRequest(req) {
     return new Promise((resolve, reject) => {
