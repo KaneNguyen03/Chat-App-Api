@@ -24,7 +24,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: 'https://chat-app-client-nu.vercel.app'
+    origin: 'wss:https://chat-app-client-nu.vercel.app'
 }))
 
 async function getUserDataFromRequest(req) {
@@ -116,6 +116,7 @@ app.post('/logout', (req, res) => {
 const server = app.listen(port, () => console.log(`listening on port ${port} at http://localhost:${port}`))
 
 const wss = new ws.WebSocketServer({ server })
+
 wss.on('connection', (connection, req) => {
     const cookies = req.headers.cookie
     if (cookies) {
