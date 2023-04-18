@@ -47,7 +47,9 @@ app.get('/test', (req, res) => {
 })
 
 app.get('/profile', (req, res) => {
+    console.log("🚀 Kha ne ~ file: index.js:50 ~ req:", req)
     const token = req.cookies?.token
+    
     if (token) {
         jwt.verify(token, jwtSecret, {}, (err, userData) => {
             if (err) throw err
