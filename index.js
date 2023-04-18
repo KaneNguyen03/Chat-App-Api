@@ -149,8 +149,6 @@ wss.on('connection', (connection, req) => {
 
     connection.isAlive = true
 
-    connection.isAlive = true
-
     connection.timer = setInterval(() => {
         connection.ping()
         connection.deathTimer = setTimeout(() => {
